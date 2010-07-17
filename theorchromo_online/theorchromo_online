@@ -1,5 +1,6 @@
 <VirtualHost *:80>
-        WSGIDaemonProcess theorchromo_online-production user=theorchromo_online group=theorchromo_online threads=10 python-path=/path/to/theorchromo_online/lib/python2.6/site-packages
+        WSGIDaemonProcess theorchromo_online-production user=theorchromo_online
+        group=theorchromo_online threads=10 python-path=/home/bezalel/theorchromo_online/lib/python2.6/site-packages
         WSGIProcessGroup theorchromo_online-production
         WSGIScriptAlias / /home/bezalel/theorchromo_online/releases/current/theorchromo_online/theorchromo_online.wsgi
         <Directory /home/bezalel/theorchromo_online/releases/current/theorchromo_online>

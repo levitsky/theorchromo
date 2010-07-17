@@ -1,10 +1,13 @@
+# It it a modified version of Gareth Rushgrove's django via fabric deployment
+# script. The directory structure has been slightly changed.
+
 # Globals
 config.project_name = 'theorchromo_online'
 
 # Environments
 def local():
     "Use the local virtual server"
-    config.hosts = ['172.16.142.130']
+    config.hosts = ['76.10.212.149']
     config.path = '/home/bezalel/theorchromo_online'
     config.user = 'bezalel'
     config.virtualhost_path = "/"
@@ -44,7 +47,7 @@ def deploy():
     require('path')
     import time
     config.release = time.strftime('%Y%m%d%H%M%S')
-    upload_tar_from_git()
+    upload_tar_from_hg()
     install_requirements()
     install_site()
     symlink_current_release()
@@ -74,14 +77,14 @@ def rollback():
     restart_webserver()    
 
 # Helpers. These are called by other functions rather than directly
-def upload_tar_from_git():
+def upload_tar_from_hg():
     require('release', provided_by=[deploy, setup])
-    "Create an archive from the current Git master branch and upload it"
-    local('git archive --format=tar master | gzip > $(release).tar.gz')
+    "Create an archive from the current Hg defalut branch and upload it"
+    local('hg archive -p theorchromo_online -t tgz $(release).tar.gz')
     run('mkdir $(path)/releases/$(release)')
     put('$(release).tar.gz', '$(path)/packages/')
     run('cd $(path)/releases/$(release) '+
-        '&& tar zxf ../../packages/$(release).tar.gz')
+        '&& tar zxf ../../packages/$(release).tar.gz --strip 1')
     local('rm $(release).tar.gz')
 
 def install_site():
