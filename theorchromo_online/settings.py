@@ -5,8 +5,10 @@ import os
 import socket
 if socket.gethostname() == 'bezalel-6720s':
     DEBUG = True
+    database_path = './testing.db'
 else:
     DEBUG = False
+    database_path = '../../../data/theorchromo_online.db'
 
 TEMPLATE_DEBUG = DEBUG
 
@@ -20,7 +22,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql',
                              # 'sqlite3' or 'oracle', 'django.db.backends.'
-        'NAME': 'bezalel',   # Or path to database file if using sqlite3.
+        'NAME': database_path,       # Path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.

@@ -105,6 +105,7 @@ def install_requirements():
 def install_site():
     "Add the virtualhost file to apache"
     require('release', provided_by=[deploy, setup])
+    run('mkdir -p %(project_path)s/data' % env)
     sudo(('cp %(project_path)s/releases/%(release)s/'
           '%(project_name)s%(virtualhost_path)s%(project_name)s '+
           '/etc/apache2/sites-available/') % env)
