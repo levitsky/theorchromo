@@ -33,11 +33,16 @@ def setup():
     sudo('aptitude install -y apache2')
     sudo('aptitude install -y libapache2-mod-wsgi')
 
-    # We want rid of the defult apache config
+    # pyBioLCCC system requirements.
+    sudo('aptitude install -y g++')
+    sudo('aptitude install -y python-dev')
+
+    # We want to get rid of the defult apache config
     sudo('cd /etc/apache2/sites-available/; a2dissite default;')
     run('mkdir -p %(project_path)s; cd %(project_path)s; virtualenv .;' % env)
-    run(('cd %(project_path)s; mkdir releases; '+ 
-        'mkdir shared; mkdir packages;') % env)
+    run((' mkdir -p %(project_path)s/releases; '+ 
+        'mkdir -p %(project_path)s/shared; '+
+        'mkdir -p %(project_path)s/packages;') % env)
     deploy()
 
 def deploy():
@@ -85,7 +90,7 @@ def upload_tar_from_hg():
     "Create an archive from the current Hg defalut branch and upload it"
     local('hg archive -p theorchromo_online -t tgz %(release)s.tar.gz' % env)
     run('mkdir %(project_path)s/releases/%(release)s' % env)
-    put('%(release)s.tar.gz', '%(project_path)s/packages/' % env)
+    put('%(release)s.tar.gz' % env, '%(project_path)s/packages/' % env)
     run(('cd %(project_path)s/releases/%(release)s '+
         '&& tar zxf ../../packages/%(release)s.tar.gz --strip 1') % env)
     local('rm %(release)s.tar.gz' % env)
@@ -107,8 +112,10 @@ def install_requirements():
 def symlink_current_release():
     "Symlink our current release"
     require('release', provided_by=[deploy, setup])
-    run(('cd %(project_path)s; rm releases/previous; ' +
-        'mv releases/current releases/previous;') % env)
+    run(('if [ -z %(project_path)s/releases/previous ]; ' +
+         'then rm %(project_path)s/releases/previous; fi;') % env)
+    run(('if [ -z %(project_path)s/releases/current ]; ' +
+         'then mv releases/current releases/previous; fi;') % env)
     run('cd %(project_path)s; ln -s %(release)s releases/current' % env)
 
 def migrate():
