@@ -8,7 +8,8 @@ if socket.gethostname() == 'bezalel-6720s':
     database_path = './testing.db'
 else:
     DEBUG = False
-    database_path = '../../../data/theorchromo_online.db'
+    database_path = os.path.join(os.path.dirname(__file__), 
+        '../../../data/theorchromo_online.db').replace('\\','/')
 
 TEMPLATE_DEBUG = DEBUG
 
