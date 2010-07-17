@@ -3,7 +3,7 @@ import os
 # Django settings for theorchromo_online project.
 
 import socket
-if socket.get_hostname() == 'bezalel-6720s':
+if socket.gethostname() == 'bezalel-6720s':
     DEBUG = True
 else:
     DEBUG = False
