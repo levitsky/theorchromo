@@ -5,8 +5,8 @@
 config.project_name = 'theorchromo_online'
 
 # Environments
-def local():
-    "Use the local virtual server"
+def target_server():
+    "Use the production server"
     config.hosts = ['76.10.212.149']
     config.path = '/home/bezalel/theorchromo_online'
     config.user = 'bezalel'
@@ -22,7 +22,7 @@ def setup():
     Setup a fresh virtualenv as well as a few useful directories, then run
     a full deployment
     """
-    require('hosts', provided_by=[local])
+    require('hosts', provided_by=[target_server])
     require('path')
     sudo('aptitude install -y python-setuptools')
     sudo('easy_install pip')
@@ -43,7 +43,7 @@ def deploy():
     required third party modules, install the virtual host and 
     then restart the webserver
     """
-    require('hosts', provided_by=[local])
+    require('hosts', provided_by=[target_server])
     require('path')
     import time
     config.release = time.strftime('%Y%m%d%H%M%S')
@@ -56,7 +56,7 @@ def deploy():
 
 def deploy_version(version):
     "Specify a specific version to be made live"
-    require('hosts', provided_by=[local])
+    require('hosts', provided_by=[target_server])
     require('path')
     config.version = version
     run('cd $(path); rm releases/previous; '+
@@ -69,7 +69,7 @@ def rollback():
     Limited rollback capability. Simple loads the previously current
     version of the code. Rolling back again will swap between the two.
     """
-    require('hosts', provided_by=[local])
+    require('hosts', provided_by=[target_server])
     require('path')
     run('cd $(path); mv releases/current releases/_previous;')
     run('cd $(path); mv releases/previous releases/current;')
