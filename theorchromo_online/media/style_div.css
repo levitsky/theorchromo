@@ -1,0 +1,172 @@
+body {
+font-family: Verdana, Helvetica, Tahoma, Arial, sans-serif;
+font-size: 12px;
+color: #222222;
+\\background-color: #F7F7F7;
+margin: 0px;
+padding: 0px;
+width: 1000px;
+}
+
+h6{
+font-family: Verdana, Helvetica, Tahoma, Arial, sans-serif;
+font-size: 18px;
+margin: 0 0px 12px 0px;
+padding: 0 0 0 0;
+}
+
+#header{
+width: 960px;
+background-color: #D98A54;
+vertical-align: bottom;
+padding: 20px 0px 0 40px;
+height: 50px;
+font-size: 3em;
+color: white;
+}
+
+#subHeader{
+height: 10px;
+width: 1000px;
+padding: 0 0px 0 0px ;	
+overflow: hidden;
+background-color: #F0B186;
+}
+
+#footer{
+clear: both;
+width: 960px;
+padding: 0em 0 0 40px;
+vertical-align: top;
+text-align: justify; 
+background-color: #D98A54  ;
+font-size: 1em;
+color: white;
+}
+
+#errorsBlock{
+padding: 8px 0 10px 30px;
+margin: 20px 0 0 64px;
+border: 2px solid red;
+width: 40%;
+}
+
+ul.errorlist{
+margin: 0px 0 0 0px;
+padding: 0px 0 0 0px;
+}
+
+#chromoConditionsBlock{
+float: left;
+width: 360px;
+margin: 0 0 0 0;
+padding: 20px 0 0 40px;
+\\background-color: #f0f0f0;
+}
+
+#peptideSequencesBlock{	
+float: right;
+border: 0px solid white;
+width: 560px;
+padding: 20px 0 20px 40px;
+}
+
+#chromoConditionsTable{
+width: 100%;
+height: 100%;
+border: 2px solid #F0B186;
+border-spacing: 2px solid white;
+border-collapse: separate;
+margin: 0 0 20px 25px ;
+}
+
+    table#chromoConditionsTable td{
+    text-align: right;
+    padding: 0em;
+    background-color: #FFF6D8;
+    }
+
+    table#chromoConditionsTable tr.error{
+    color: red;
+    }
+
+    /* Don't display errorlist in the form */
+    table#chromoConditionsTable ul{
+    display: none;
+    }
+
+    table#chromoConditionsTable input{
+    width: 4em;	
+    height: 100%;
+    margin: 0 0 0 0em;
+    padding: 0px;
+    text-align: left;
+    font-family: Verdana, Helvetica, Tahoma, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: normal
+    }
+
+
+#peptideSequencesTable{
+border: 0px solid black;
+padding: 0 px;
+height: 100%;
+width: 60%;
+margin: 0 0 0 25px;
+}
+
+    table#peptideSequencesTable td{
+    text-align: right;
+    padding: 0em;
+    background-color: #FFF6D8;
+    }
+
+    table#peptideSequencesTable textarea{
+    width: 98%;
+    border: 2px solid #F0B186;
+    margin: 0 0 0 0;
+    }
+
+    table#peptideSequencesTable .button{
+    text-align: center;
+    font-family: Verdana, Helvetica, Tahoma, Arial, sans-serif;	 
+    width: 100%;
+    height: 130%;
+    }
+
+table#outputTable {
+border: 2px solid #F0B186;
+margin: 25px 25px 25px 40px ;
+}
+
+    table#outputTable td, th{
+    border: 2px solid white;
+    padding: 0px 5px 0px 15px;
+    text-align: right;
+    }
+
+    table#outputTable tr.odd td,th{
+    background-color: #FFF6D8;
+    }
+
+table#outputParametersTable {
+border: 2px solid #F0B186;
+margin: 0 0 25px 40px ;
+}
+
+    table#outputParametersTable td, th{
+    border: 2px solid white;
+    padding: 0px 5px 0px 15px;
+    text-align: right;
+    }
+
+    table#outputParametersTable tr.odd td,th{
+    background-color: #FFF6D8;
+    }
+
+#helpText{
+text-align: justify;
+font-size: 14px;
+width: 960px;
+padding: 20px 20px 20px 40px;
+}

@@ -1,0 +1,79 @@
+	<!--#include file="header_include.html" -->
+	<FORM method="post" action="cgi-bin/results">
+		<div id="parameters">
+			<h6>1. Describe your LC system.</h6>
+			<table id="parametersTable">							
+				<tr>
+					<td width="85%">Column length, mm</td>
+					<td><input type="text" name="Length" value="150" ></td>
+				</tr>
+		
+				<tr>
+					<td>Column internal diameter, mm</td>
+					<td><input type="text" name="Diameter" value="0.075" ></td>
+				</tr>
+						
+				<tr>
+					<td>Packing material pore size, A</td>
+					<td><input type="text" name="Pore_size" value="100" ></td>
+				</tr>						
+					
+				<tr>
+					<td>Initial concentration of B component, %</td>
+					<td><input type="text" name="Bmin" value="0" ></td>
+				</tr>
+						
+				<tr>
+					<td>Final concentration of B component, %</td>
+					<td><input type="text" name="Bmax" value="50" ></td>
+				</tr>
+	
+				<tr>
+					<td>Gradient time, min</td>
+					<td><input type="text" name="Time" value="60" ></td>
+				</tr>
+	
+				<tr>
+					<td>Delay time for LC system, min</td>
+					<td><input type="text" name="Delay_time" value="0" ></td>
+				</tr>
+						
+				<tr>
+					<td>Flow rate, ml/min</td>
+					<td><input type="text" name="Flow_rate" value="0.0003" ></td>
+				</tr>
+				
+				<tr>
+					<td>ACN concentration in A component, %</td>
+					<td><input type="text" name="ACNA" value="2" ></td>
+				</tr>
+				
+				<tr>
+					<td>ACN concentration in B component, %</td>
+					<td><input type="text" name="ACNB" value="80" ></td>
+				</tr>
+			</table>
+		</div>		
+		<div id="peptides">
+			<h6>2. Define your peptide set, each peptide on a new line.</h6>
+			<table id="peptidesTable">
+				<tr>
+					<td colspan="3">
+						<textarea rows="13" name="Peptides"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td width="20%" class="buttonCell">
+						<INPUT TYPE="button" value="Help" class="button" onclick="window.open('./help.shtml');">
+					</td>
+					<td width="44%" class="buttonCell">
+						<INPUT TYPE="reset" VALUE="Set default values" class="button">
+					</td>
+					<td width="36%" class="buttonCell">
+						<INPUT TYPE="submit" value="Submit" class="button">
+					</td>
+				</tr>
+			</table>
+		</div>				
+	</form>
+	<!--#include file="footer_include.html" -->

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if processed_peptides and request_data %}
+        <table id="outputTable">
+            <tr class="odd">
+                <th>Sequence</th>
+                <th>Retention time, min</th>
+                <th>Monoisotopic Mass, Da</th>
+            </tr>
+            {% for peptide in processed_peptides %}
+                <tr class="{% cycle 'even' 'odd' %}">
+                    <th>{{ peptide.sequence }}</th>
+                    <td>{{ peptide.RT }}</td>
+                    <td>{{ peptide.monoisotopicMass }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <table id="outputParametersTable">
+            {% for field in request_data %}
+                <tr class="{% cycle 'even' 'odd' %}">
+                    <th>{{ field.label }}</th>
+                    <td>{{ field.value }}</td>
+                </tr>
+            {% endfor %} 
+        </table>
+    {% else %}
+        <p> Please fill the data at the index page. </p>
+    {% endif %}
+{% endblock %}

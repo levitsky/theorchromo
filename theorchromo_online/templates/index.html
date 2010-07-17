@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if chromoConditionsForm.errors %}
+        <div id="errorsBlock">
+            <ul class="errorlist">
+                {% for field in chromoConditionsForm %}
+                    {% for error in field.errors %}
+                       <li> {{ error }} </li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    <FORM action="" method="post">{% csrf_token %}
+        <div id="chromoConditionsBlock">
+            <h6>1. Describe your LC system.</h6>
+            <table id="chromoConditionsTable">							
+                {{ chromoConditionsForm.as_table }}
+            </table>
+        </div>		
+        <div id="peptideSequencesBlock">
+            <h6>2. Define your peptide set, each peptide on a new line.</h6>
+            <table id="peptideSequencesTable">
+                {% for field in peptideSequencesForm %}
+                    <tr>
+                        <td>
+                            {{ field }}
+                        </td>
+                    <tr>
+                {% endfor %}
+                <tr>
+                    <td class="buttonCell">
+                        <INPUT TYPE=SUBMIT value="Submit" class="button">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </FORM>
+{% endblock %}
