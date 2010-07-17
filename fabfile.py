@@ -14,6 +14,7 @@ def target_server():
     env.project_path = '/home/bezalel/theorchromo_online'
     env.user = 'bezalel'
     env.virtualhost_path = "/"
+    env.warn_only = True
 
 # Tasks
 def test():
@@ -95,19 +96,19 @@ def upload_tar_from_hg():
         '&& tar zxf ../../packages/%(release)s.tar.gz --strip 1') % env)
     local('rm %(release)s.tar.gz' % env)
 
-def install_site():
-    "Add the virtualhost file to apache"
-    require('release', provided_by=[deploy, setup])
-    sudo(('cd %(project_path)s/releases/%(release)s; '+
-         'cp %(project_name)s%(virtualhost_path)s%(project_name)s '+
-         '/etc/apache2/sites-available/') % env)
-    sudo('cd /etc/apache2/sites-available/; a2ensite %(project_name)s' % env) 
-
 def install_requirements():
     "Install the required packages from the requirements file using pip"
     require('release', provided_by=[deploy, setup])
     run(('cd %(project_path)s; pip install -E . '+
         '-r ./releases/%(release)s/requirements.txt') % env)
+
+def install_site():
+    "Add the virtualhost file to apache"
+    require('release', provided_by=[deploy, setup])
+    sudo(('cp %(project_path)s/releases/%(release)s/'
+          '%(project_name)s%(virtualhost_path)s%(project_name)s '+
+          '/etc/apache2/sites-available/') % env)
+    sudo('cd /etc/apache2/sites-available/; a2ensite %(project_name)s' % env) 
 
 def symlink_current_release():
     "Symlink our current release"
@@ -115,8 +116,10 @@ def symlink_current_release():
     run(('if [ -z %(project_path)s/releases/previous ]; ' +
          'then rm %(project_path)s/releases/previous; fi;') % env)
     run(('if [ -z %(project_path)s/releases/current ]; ' +
-         'then mv releases/current releases/previous; fi;') % env)
-    run('cd %(project_path)s; ln -s %(release)s releases/current' % env)
+         'then mv %(project_path)s/releases/current ' + 
+            '%(project_path)s/releases/previous; fi;') % env)
+    run(('ln -s %(project_path)s/releases/%(release)s '+
+         '%(project_path)s/releases/current') % env)
 
 def migrate():
     "Update the database"
