@@ -2,7 +2,12 @@ import os
 
 # Django settings for theorchromo_online project.
 
-DEBUG = True
+import socket
+if socket.get_hostname() == 'bezalel-6720s':
+    DEBUG = True
+else:
+    DEBUG = False
+
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
