@@ -11,7 +11,6 @@ def process_peptides(length, diameter, pore_size, bmin, bmax, gradient_time,
     output = []
     for sequence in peptides.replace('\r', '').split('\n'):
         peptide_properties = {'sequence': sequence}
-        print sequence.strip()
         peptide_properties['RT'] = (round(
             pyBioLCCC.calculateRT(str(sequence.strip()), chromatograph), 2))
         peptide_properties['monoisotopicMass'] = (
