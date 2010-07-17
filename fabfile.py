@@ -113,9 +113,9 @@ def install_site():
 def symlink_current_release():
     "Symlink our current release"
     require('release', provided_by=[deploy, setup])
-    run(('if [ -z %(project_path)s/releases/previous ]; ' +
+    run(('if [ -d %(project_path)s/releases/previous ]; ' +
          'then rm %(project_path)s/releases/previous; fi;') % env)
-    run(('if [ -z %(project_path)s/releases/current ]; ' +
+    run(('if [ -d %(project_path)s/releases/current ]; ' +
          'then mv %(project_path)s/releases/current ' + 
             '%(project_path)s/releases/previous; fi;') % env)
     run(('ln -s %(project_path)s/releases/%(release)s '+
