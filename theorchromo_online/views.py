@@ -16,12 +16,10 @@ def index(request):
         peptideSequencesForm = PeptideSequencesForm(request.POST)
         if (chromoConditionsForm.is_valid() and
             peptideSequencesForm.is_valid()):
-            print 'test'
             cleaned_data = chromoConditionsForm.cleaned_data
             cleaned_data.update(peptideSequencesForm.cleaned_data)
             request.session['request_data'] = {}
             request.session['request_data'].update(cleaned_data)
-            print request.session['request_data']
             return HttpResponseRedirect('/results/')
     else:
         if request.session.has_key('request_data'):
