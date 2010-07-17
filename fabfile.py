@@ -107,15 +107,15 @@ def install_requirements():
 def symlink_current_release():
     "Symlink our current release"
     require('release', provided_by=[deploy, setup])
-    run(('cd %(project_path)s; rm releases/previous; '
-        'mv releases/current releases/previous;' % env)
+    run(('cd %(project_path)s; rm releases/previous; ' +
+        'mv releases/current releases/previous;') % env)
     run('cd %(project_path)s; ln -s %(release)s releases/current' % env)
 
 def migrate():
     "Update the database"
     require('project_name')
-    run('cd %(project_path)s/releases/current/%(project_name)s; '+
-        '../../../bin/python manage.py syncdb --noinput')
+    run(('cd %(project_path)s/releases/current/%(project_name)s; '+
+        '../../../bin/python manage.py syncdb --noinput') % env)
 
 def restart_webserver():
     "Restart the web server"
