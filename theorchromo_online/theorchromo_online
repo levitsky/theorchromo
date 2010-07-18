@@ -1,4 +1,5 @@
 <VirtualHost *:80>
+        ServerName theorchromo.ru
         WSGIDaemonProcess theorchromo_online-production user=bezalel group=bezalel threads=10 python-path=/home/bezalel/theorchromo_online/lib/python2.6/site-packages
         WSGIProcessGroup theorchromo_online-production
         WSGIScriptAlias / /home/bezalel/theorchromo_online/releases/current/theorchromo_online/theorchromo_online.wsgi

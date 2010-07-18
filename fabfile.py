@@ -1,6 +1,7 @@
 # It it a modified version of Gareth Rushgrove's django via fabric deployment
 # script. The directory structure has been slightly changed.
 # Also several fixed were made for compatibility with Fabric v.0.9.1
+# Original document: http://morethanseven.net/2009/07/27/fabric-django-git-apache-mod_wsgi-virtualenv-and-p.html
 
 from fabric.api import *
 
