@@ -111,8 +111,17 @@ class ChromoConditionsForm(forms.Form):
             'invalid'  : u'ACN concentration in B component must be a number.',
             'min_value': u'ACN concentration in B component must be greater than %(limit_value)d%%.',
             'max_value': u'ACN concentration in B component must be less than %(limit_value)d%%.'})
+    chromatography_type = forms.ChoiceField(
+        label='Solid/mobile phase combination',
+        choices=[('RP/ACN+TFA', 'RP/ACN+TFA'),
+                 ('RP/ACN+FA', 'RP/ACN+FA')],
+        initial='RP/ACN+FA',
+        error_messages = {
+            'required' : u'Combination of phases is required.',
+            'invalid_choice' :
+                u'Choose an allowable combination of phases.'})
 
 class PeptideSequencesForm(forms.Form):
     peptides = forms.CharField(
         label='Peptide sequences',
-        widget=forms.Textarea(attrs={'rows':11, 'cols':40}))
+        widget=forms.Textarea(attrs={'rows':12, 'cols':60}))
