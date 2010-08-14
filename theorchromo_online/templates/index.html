@@ -15,13 +15,14 @@
 
     <FORM action="" method="post">{% csrf_token %}
         <div id="chromoConditionsBlock">
-            <h6>1. Describe your LC system.</h6>
+            <h6><a href="help#lcparameters" class="help">1. Describe your LC system.</a></h6>
             <table id="chromoConditionsTable">							
                 {{ chromoConditionsForm.as_table }}
             </table>
         </div>		
         <div id="peptideSequencesBlock">
-            <h6>2. Enter peptides, each one on a new line.</h6>
+            <h6><a href="help#sequences" class="help">2. Enter peptides, each
+            one on a new line.</a></h6>
             <table id="peptideSequencesTable">
                 {% for field in peptideSequencesForm %}
                     <tr>

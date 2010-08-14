@@ -190,7 +190,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="2.8"
      inkscape:cx="212.22587"
-     inkscape:cy="559.09813"
+     inkscape:cy="587.66956"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -251,34 +251,34 @@
        sodipodi:nodetypes="ccc" />
     <text
        xml:space="preserve"
-       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="131.51726"
-       y="423.84329"
+       style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="115.80297"
+       y="424.55759"
        id="text4638"><tspan
          sodipodi:role="line"
          id="tspan4640"
-         x="131.51726"
-         y="423.84329">Concentration of B</tspan></text>
+         x="115.80297"
+         y="424.55759">Concentration of B</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
        x="279.48019"
-       y="515.21631"
+       y="517.21631"
        id="text4642"><tspan
          sodipodi:role="line"
          x="279.48019"
-         y="515.21631"
+         y="517.21631"
          id="tspan4479">Time</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="190.8611"
-       y="514.19971"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="185.93254"
+       y="518.19971"
        id="text4648"><tspan
          sodipodi:role="line"
          id="tspan4650"
-         x="190.8611"
-         y="514.19971">Delay time</tspan></text>
+         x="185.93254"
+         y="518.19971">Delay time</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.96016937;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Sstart);marker-end:url(#Arrow1Send)"
        d="m 190.33165,507.37795 20.10576,0"
@@ -290,40 +290,41 @@
     <text
        xml:space="preserve"
        style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="223.71758"
-       y="514.36182"
+       x="217.71758"
+       y="518.36182"
        id="text4648-5"><tspan
          sodipodi:role="line"
          id="tspan4650-9"
-         x="223.71758"
-         y="514.36182">Gradient time</tspan></text>
+         x="217.71758"
+         y="518.36182"
+         style="font-size:6px">Gradient time</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="165.83971"
-       y="495.26581"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="153.33969"
+       y="494.55151"
        id="text4648-3"><tspan
          sodipodi:role="line"
-         x="166.39439"
-         y="495.26581"
+         x="154.17172"
+         y="494.55151"
          id="tspan3737">Initial concentration of </tspan><tspan
          sodipodi:role="line"
-         x="165.83971"
-         y="500.26581"
+         x="153.33969"
+         y="502.05151"
          id="tspan3741">B component</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="166.17174"
-       y="448.70648"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="153.81459"
+       y="447.63504"
        id="text4648-3-4"><tspan
          sodipodi:role="line"
-         x="166.72643"
-         y="448.70648"
+         x="154.64662"
+         y="447.63504"
          id="tspan3737-0">Final concentration of </tspan><tspan
          sodipodi:role="line"
-         x="166.17174"
-         y="453.70648"
+         x="153.81459"
+         y="455.13504"
          id="tspan3741-0">B component</tspan></text>
   </g>
 </svg>

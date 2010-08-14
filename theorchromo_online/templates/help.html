@@ -2,64 +2,298 @@
 
 {% block content %}
 <div id="helpText">
-    <p>
-    BioLCCC (Liquid Chromatography of Biomolecules at Critical Conditions) model
-    considers peptides as macromolecules and describes their separation in basic
-    thermodynamics terms [1]. BioLCCC model is suitable for retention time 
-    prediction of any peptides separated in gradient RP-HPLC. One of the 
-    consequences of the model is that it establishes quantitative and 
-    qualitative 
-    relationships between experimentally observed retention times and peptide 
-    sequences. The BioLCCC model is based on the statistical thermodynamics of
-    macromolecules that considers the macromolecular chain adsorption on the 
-    adsorbent surface as a second order phase transition in a narrow range of 
-    experimental parameters such as column temperature and/or binary solvent 
-    composition (the so-called critical parameters). Under critical conditions, 
-    the interaction of the chain monomers (amino acid residues) with the surface
-    reveals not only the individual monomer properties (chemical properties  of 
-    individual amino acids), but also the general property of the whole chain 
-    (peptide sequence) [2]. The BioLCCC model contains very limited number of 
-    phenomenological parameters, particularly, experimentally determined 20 
-    interaction energies for most common amino acids, 4 energies for different 
-    end group types, and 2 energies characterizing the interaction of solvent 
-    molecules (water and acetonitrile) with the surface. Given this small number
-    of phenomenological parameters, the BioLCCC model can be easily adopted for 
-    any type of chromatography not limited by phase or solvent types, and its 
-    extension to cover peptides with post-translational modification is 
-    straightforward. The developed model has been tested on a standard peptide 
-    mixture and further confirmed using various experimental data sets. Rather 
-    high linear correlation between experimental and predicted retention times 
-    for peptides in the range of R2 from 0.9 to 0.98 depending on the sample 
-    complexity has been reported elsewhere, and the capabilities to recognize 
-    small differences in peptide structures have been demonstrated [1, 3]. Note,
-    however, that BioLCCC model has rather simplified assumptions. The model 
-    currently neglects the interactions between the charged residues (such as 
-    lysine, histidine, and arginine at pH = 2) under particular solvent 
-    conditions, as well as secondary structure effects by assuming that peptide 
-    can be modeled by Gaussian "free-walk" chain. As an advantage, BioLCCC model
-    does not require large data sets for training or determination of 
-    phenomenological parameters and calculates retention times for peptides 
-    with known sequences for any RP HPLC system, column, gradient profile, or 
-    mobile phase composition. This model accounts for exclusion effects: when 
-    the gradient slope changes, it correctly predicts reversal in elution order 
-    for peptides with close retention times but differing in sequence length.
-    </p>
-    <p>				
-    This web project is still under development therefore some additional 
-    functions of our Theoretical Chromatograph are not available for the time
-    present.
-    </p>
-    <p>
-    REFERENCES <br/><br/>
+    <div class="question">
+        1. What does TheorChromo do?
+    </div>
 
-    1. Gorshkov A.V., Tarasova I.A., Evreinov V.V., Savitski M.M., 
-    Nielsen M.L., Zubarev R.A., Gorshkov M.V., Anal. Chem., 2006, 78,
-    7770-7778.<br/>
-    2. Gorshkov A.V., Evreinov V.V., Tarasova I.A., Gorshkov M.V., Polymer 
-    Science B, 2007, 49, Nos. 3-4, 93-107.<br/>
-    3. I. A. Tarasova, A. V. Gorshkov, V. V. Evreinov, K. Adams, R. A. Zubarev, 
-    and M. V. Gorshkov, Polymer Science, Series A, 2008, Vol. 50, No. 3, 
-    p. 309. <br/> 
-    </p>
+    <div class="answer">
+        <p>
+        TheorChromo is the online tool for peptide and
+        protein retention time prediction in liquid chromatography. It is the
+        implementation of the BioLCCC model, tuned for the most popular case of
+        linear gradient chromatography.
+        </p>
+    </div> 
+
+    <div class="question">
+        2. How should I use it?
+    </div>
+
+    <div class="answer">
+        <p>
+        Just follow the instructions on the main page.
+        <a name="lcparameters">Firstly, enter the parameters of your LC
+        system in the corresponding lines.</a><br/> 
+        <b>WARNING: All parameters are saved between sessions.</b>
+        </p>
+
+        <div id="helpParametersTable">
+        <div class="parameter">
+            <div class="name">
+                Column length, mm
+            </div>
+            <div class="description">
+                The working length of your column, i.e. the length of the column
+                area filled with an adsorbent. Usually this number is supplied
+                by the manufacturer. 
+            </div>
+        </div>
+
+        <div class="parameter">
+            <div class="name">
+                Column internal diameter, mm 
+            </div>
+            <div class="description">
+                The diameter of the internal volume of the column filled with an
+                adsorbent. This number is also supplied by the manufacturer.
+            </div>
+        </div>
+
+        <div class="parameter">
+            <div class="name">
+                Packing material pore size, A 
+            </div>
+            <div class="description">
+                The average linear size of a pore within a
+                particle of a packing material. Usually it is supplied by the
+                manufacturer of the column or the packing material (if you use
+                in-house packed columns).
+            </div>
+        </div>
+
+        <div class="parameter">
+            <div class="name">
+                Initial concentration of B component, % 
+            </div>
+            <div class="description">
+                The concentration of B component in the beginning of the 
+                linear gradient.
+            </div>
+        </div>
+
+        <div class="parameter">
+            <div class="name">
+                Final concentration of B component, % 
+            </div>
+            <div class="description">
+                The concentration of B component at the end of the linear 
+                gradient.
+            </div>
+        </div>
+
+        <div class="parameter">
+            <div class="name">
+                Gradient time, min 
+            </div>
+            <div class="description">
+                The duration of the linear part of the gradient.
+            </div>
+        </div>
+
+        <div class="parameter">
+            <div class="name">
+                Delay time, min 
+            </div>
+            <div class="description">
+                The duration of the flushing step preceding the linear part of 
+                the gradient. This number is simply added to the calculated 
+                retention time of a peptide.
+            </div>
+        </div>
+
+        <div class="parameter">
+            <div class="name">
+                Flow rate, ml/min 
+            </div>
+            <div class="description">
+                The average flow rate at the linear part of the gradient.
+            </div>
+        </div>
+
+        <div class="parameter">
+            <div class="name">
+                ACN concentration in A component, % 
+            </div>
+            <div class="description">
+                The concentration of ACN in the component with a lesser eluting 
+                ability.
+            </div>
+        </div>
+
+        <div class="parameter">
+            <div class="name">
+                ACN concentration in B component, % 
+            </div>
+            <div class="description">
+                The concentration of ACN in the component with the greater 
+                eluting ability.
+            </div>
+        </div>
+
+        <div class="parameter">
+            <div class="name">
+                Solid/mobile phase combination 
+            </div>
+            <div class="description">
+                The type of retention chemistry being used in the experiment. 
+                Currently, the two types are supplied: <br/>
+                    <b>RP/ACN+FA</b> - the standard reversed C18 solid phase,
+                    ACN as an eluent and formic acid an ion paring agent;<br/>
+                    <b>RP/ACN+TFA</b> - the standard reversed C18 solid phase, 
+                    ACN as an eluent and trifluoroacetic acid an ion paring 
+                    agent.
+            </div>
+        </div>
+        </div>
+        <br/>
+
+        <a href="/media/column.png">
+            <img src="/media/column.png" alt="Column geometry"/>
+        </a>
+        <br/><br/>
+        <a href="/media/gradient.png">
+            <img src="/media/gradient.png" alt="Linear gradient"/>
+        </a>
+
+        <p>
+        On the next step you need to enter peptide sequences. 
+        <a name="sequences">
+        The sequences should be written using the standard one-letter codes 
+        for the twenty proteinogenic L-amino acids and the extended notation 
+        for modified aminoacids.</a><br/>
+        </p>
+
+        <p>
+        <b>WARNING: Only capital letters are allowed for the standard amino
+        acids.</b><br/>
+        <b>WARNING: Cysteine is assumed to be alkylated with
+        iodoaceticamide.</b><br/>
+        </p>
+
+        <div class="aminoacidCode">
+            <div class="code">
+                A,D,E,F,G,H,I,K,L,M,N,P,Q,R,S,T,V,W 
+            </div>
+            <div class="description">
+                standard proteinogenic amino acids
+            </div>
+        </div>
+
+        <div class="aminoacidCode">
+            <div class="code">
+                C 
+            </div>
+            <div class="description">
+                carboxyamidomethylated cysteine
+            </div>
+        </div>
+
+        <div class="aminoacidCode">
+            <div class="code">
+                pS 
+            </div>
+            <div class="description">
+                phosphorylated serine
+            </div>
+        </div>
+        <div class="aminoacidCode">
+            <div class="code">
+                pT
+            </div>
+            <div class="description">
+                phosphorylated threonine
+            </div>
+        </div>
+        <div class="aminoacidCode">
+            <div class="code">
+                pY
+            </div>
+            <div class="description">
+                phosphorylated tyrosine
+            </div>
+        </div>
+    </div>
+
+    <div class="question">
+        3. What is the scientific background behind TheorChromo?
+    </div>
+
+    <div class="answer">
+        <p>
+        TheorChromo is based on the BioLCCC (Liquid Chromatography of
+        Biomolecules at Critical Conditions) model. Contrary to the other models
+        of peptide chromatography, BioLCCC uses onle very basic assumputions
+        regarding flexibility of a polypeptide chain, the shape of a pore, type
+        of interactions neglected, etc. Given this assumptions, the coefficient
+        of distribution (Kd) of a peptide between solid phase and mobile phase
+        of a given composition is derived using the methods of statistical
+        physics of macromolecules. Finally, the retention time of a peptide is
+        derived from Kd using the basis equation of gradient
+        chromatography.
+        </p>
+
+        <p>
+        Due to the physical basis of the BioLCCC model, it contains very few
+        free parameters. The retention properties of an amino acid are
+        characterized by a single number, which is essentially the energy of an
+        interaction between amino acid and the surface of solid phase in pure
+        water+ion paring agent. Given this small number of
+        phenomenological parameters, the BioLCCC model can easily be adopted for
+        any type of chromatography not limited by phase or solvent types.
+        Moreover, its extension to peptides with post-translational 
+        modifications is straightforward as it was shown for the phosphorylated
+        aminoacids.
+        </p>
+        
+        <p>
+        Further reading:<br/>
+        <a href="http://dx.doi.org/10.1021/ac060913x">
+        1. <b>Liquid Chromatography at Critical Conditions:  Comprehensive
+        Approach to Sequence-Dependent Retention Time Prediction</b>,
+Alexander V. Gorshkov, Irina A. Tarasova, Victor V. Evreinov, Mikhail M. Savitski, Michael L. Nielsen, Roman A. Zubarev, and Mikhail V. Gorshkov,
+<i>Analytical Chemistry</i>, <b>2006</b>, 78 (22), 7770-7777.
+        </a><br/>
+        <a href="http://dx.doi.org/10.1134/S1560090407030098">
+        2. <b>Applicability of the critical chromatography concept to proteomics
+        problems: Dependence of retention time on the sequence of amino
+        acids</b>, Alexander V. Gorshkov A., Victor V. Evreinov V., Irina A.
+        Tarasova, Mikhail V. Gorshkov, <i>Polymer Science B</i>, <b>2007</b>,
+        49 (3-4), 93-107.
+        </a><br/>
+        <a href="http://www.springerlink.com/content/gnh84v62w960747n/">
+        3. <b>Applicability of the critical chromatography concept to proteomics
+        problems: Experimental study of the dependence of peptide retention time
+        on the sequence of amino acids in the chain</b>,
+        Irina A. Tarasova, Alexander V. Gorshkov, Victor V. Evreinov, 
+        Chris Adams, Roman A. Zubarev, and Mikhail V. Gorshkov, 
+        <i>Polymer Science A</i>, <b>2008</b>, 50 (3), 309. <br/> 
+        </a>
+        </p>
+    </div>
+
+    <div class="question">
+        4. May I somehow use BioLCCC on my own computer?
+    </div>
+
+    <div class="answer">
+        <p>
+        Yes, the source code of the BioLCCC is open and can be used in any free
+        project. Please, check libBioLCCC and, in case you are using Python in
+        your work, <a href="http://pypi.python.org/pypi/pyBioLCCC">pyBioLCCC</a>
+        projects.
+        </p>
+    </div>
+
+    <div class="question">
+        5. I have another question regarding BioLCCC, where can I ask it?
+    </div>
+
+    <div class="answer">
+        <p>
+        You are welcome to the BioLCCC discussion group:
+        <a href="http://groups.google.com/group/biolccc">http://groups.google.com/group/biolccc</a>
+        </p>
+    </div>
+
 </div>
 {% endblock %}
