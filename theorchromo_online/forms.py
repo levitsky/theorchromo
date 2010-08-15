@@ -124,4 +124,7 @@ class ChromoConditionsForm(forms.Form):
 class PeptideSequencesForm(forms.Form):
     peptides = forms.CharField(
         label='Peptide sequences',
-        widget=forms.Textarea(attrs={'rows':12, 'cols':60}))
+        widget=forms.Textarea(attrs={'rows':10, 'cols':60}))
+    is_alkylated = forms.BooleanField(
+        label='Cysteines are carboxyamidomethylated',
+        required=False)

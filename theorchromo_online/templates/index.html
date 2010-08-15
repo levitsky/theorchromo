@@ -24,15 +24,21 @@
             <h6><a href="help#sequences" class="help">2. Enter peptides, each
             one on a new line.</a></h6>
             <table id="peptideSequencesTable">
-                {% for field in peptideSequencesForm %}
+                    <tr>
+                        <td colspan="2">
+                            {{ peptideSequencesForm.peptides }}
+                        </td>
+                    </tr>
                     <tr>
                         <td>
-                            {{ field }}
+                            {{ peptideSequencesForm.is_alkylated.label }}
                         </td>
-                    <tr>
-                {% endfor %}
+                        <td>
+                            {{ peptideSequencesForm.is_alkylated }}
+                        </td>
+                    </tr>
                 <tr>
-                    <td class="buttonCell">
+                    <td class="buttonCell" colspan="2">
                         <INPUT TYPE=SUBMIT value="Submit" class="button">
                     </td>
                 </tr>

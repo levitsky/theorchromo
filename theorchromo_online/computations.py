@@ -1,7 +1,8 @@
 import pyBioLCCC
 
 def process_peptides(length, diameter, pore_size, bmin, bmax, gradient_time,
-    delay_time, flow_rate, acna, acnb, chromatography_type, peptides):
+    delay_time, flow_rate, acna, acnb, chromatography_type, peptides,
+    is_alkylated):
 
     chromatograph = pyBioLCCC.ChromoConditions(
         length, diameter, pore_size,
@@ -48,6 +49,10 @@ def process_peptides(length, diameter, pore_size, bmin, bmax, gradient_time,
 
     output = []
     for sequence in peptides.replace('\r', '').split('\n'):
+        if is_alkylated:
+            # Several replacements are done in the sake of parseability.
+            sequence = sequence.replace('camC', 'C').replace('C', 'camC')
+            sequence = sequence.replace('-camC','-C')
         peptide_properties = {'sequence': sequence}
         peptide_properties['RT'] = (round(
             pyBioLCCC.calculateRT(
