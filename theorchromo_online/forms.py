@@ -38,27 +38,27 @@ class ChromoConditionsForm(forms.Form):
             'min_value': u'Packing material pore size must be greater than %(limit_value)d A.',
             'max_value': u'Packing material pore size must be less than %(limit_value)d A.'})
     bmin = forms.FloatField(
-        label='Initial concentration of B component, %',
+        label='Initial concentration of component B, %',
         initial=(
             pyBioLCCC.standardChromoConditions.gradient()[0].concentrationB()),
         min_value=0.0,
         max_value=100.0,
         error_messages = {
-            'required' : u'Initial concentration of B component is required.',
-            'invalid'  : u'Initial concentration of B component must be a number.',
-            'min_value': u'Initial concentration of B component must be greater than %(limit_value)d%%.',
-            'max_value': u'Initial concentration of B component must be less than %(limit_value)d%%.'})
+            'required' : u'Initial concentration of component B is required.',
+            'invalid'  : u'Initial concentration of component B must be a number.',
+            'min_value': u'Initial concentration of component B must be greater than %(limit_value)d%%.',
+            'max_value': u'Initial concentration of component B must be less than %(limit_value)d%%.'})
     bmax = forms.FloatField(
-        label='Final concentration of B component, %',
+        label='Final concentration of component B, %',
         initial=(
             pyBioLCCC.standardChromoConditions.gradient()[1].concentrationB()),
         min_value=0.0,
         max_value=100.0,
         error_messages = {
-            'required' : u'Final concentration of B component is required.',
-            'invalid'  : u'Final concentration of B component must be a number.',
-            'min_value': u'Final concentration of B component must be greater than %(limit_value)d%%.',
-            'max_value': u'Final concentration of B component must be less than %(limit_value)d%%.'})
+            'required' : u'Final concentration of component B is required.',
+            'invalid'  : u'Final concentration of component B must be a number.',
+            'min_value': u'Final concentration of component B must be greater than %(limit_value)d%%.',
+            'max_value': u'Final concentration of component B must be less than %(limit_value)d%%.'})
     gradient_time = forms.FloatField(
         initial=pyBioLCCC.standardChromoConditions.gradient()[1].time(),
         label='Gradient time, min',
@@ -90,27 +90,27 @@ class ChromoConditionsForm(forms.Form):
             'min_value': u'Flow rate must be greater than %(limit_value)d ml/min.',
             'max_value': u'Flow rate must be less than %(limit_value)d ml/min.'})
     acna = forms.FloatField(
-        label='ACN concentration in A component, %',
+        label='ACN concentration in component A, %',
         initial=(
             pyBioLCCC.standardChromoConditions.secondSolventConcentrationA()),
         min_value=0.0,
         max_value=100.0,
         error_messages = {
-            'required' : u'ACN concentration in A component is required.',
-            'invalid'  : u'ACN concentration in A component must be a number.',
-            'min_value': u'ACN concentration in A component must be greater than %(limit_value)d%%.',
-            'max_value': u'ACN concentration in A component must be less than %(limit_value)d%%.'})
+            'required' : u'ACN concentration in component A is required.',
+            'invalid'  : u'ACN concentration in component A must be a number.',
+            'min_value': u'ACN concentration in component A must be greater than %(limit_value)d%%.',
+            'max_value': u'ACN concentration in component A must be less than %(limit_value)d%%.'})
     acnb = forms.FloatField(
-        label='ACN concentration in B component, %',
+        label='ACN concentration in component B, %',
         initial=(
             pyBioLCCC.standardChromoConditions.secondSolventConcentrationB()),
         min_value=0.0,
         max_value=100.0,
         error_messages = {
-            'required' : u'ACN concentration in B component is required.',
-            'invalid'  : u'ACN concentration in B component must be a number.',
-            'min_value': u'ACN concentration in B component must be greater than %(limit_value)d%%.',
-            'max_value': u'ACN concentration in B component must be less than %(limit_value)d%%.'})
+            'required' : u'ACN concentration in component B is required.',
+            'invalid'  : u'ACN concentration in component B must be a number.',
+            'min_value': u'ACN concentration in component B must be greater than %(limit_value)d%%.',
+            'max_value': u'ACN concentration in component B must be less than %(limit_value)d%%.'})
     chromatography_type = forms.ChoiceField(
         label='Solid/mobile phase combination',
         choices=[('RP/ACN+TFA', 'RP/ACN+TFA'),
