@@ -8,9 +8,9 @@
 
     <div class="answer">
         <p>
-        TheorChromo is the online tool for peptide and
-        protein retention time prediction in liquid chromatography. It is the
-        implementation of the BioLCCC model, tuned for the most popular case of
+        TheorChromo is an online tool for peptide and
+        protein retention time prediction in liquid chromatography. It
+        implements the BioLCCC model for the most popular case of
         linear gradient chromatography.
         </p>
     </div> 
@@ -138,10 +138,10 @@
                 The type of retention chemistry being used in the experiment. 
                 Currently, the two types are supplied: <br/>
                     <b>RP/ACN+FA</b> - the standard reversed C18 solid phase,
-                    ACN as an eluent and formic acid an ion paring agent;<br/>
+                    ACN as an eluent and 0.1% formic acid in both solvents;<br/>
                     <b>RP/ACN+TFA</b> - the standard reversed C18 solid phase, 
-                    ACN as an eluent and trifluoroacetic acid an ion paring 
-                    agent.
+                    ACN as an eluent and 0.1% trifluoroacetic acid in both
+                    solvents.
             </div>
         </div>
         </div>
@@ -240,7 +240,8 @@
     <div class="answer">
         <p>
         TheorChromo is based on the BioLCCC (Liquid Chromatography of
-        Biomolecules at Critical Conditions) model. Contrary to the other models
+        Biomacromolecules at Critical Conditions) model. Contrary to the other
+        models
         of peptide chromatography, BioLCCC uses only very basic assumptions
         regarding flexibility of a polypeptide chain, the shape of a pore, type
         of interactions neglected, etc. Given this assumptions, the coefficient
@@ -249,16 +250,33 @@
         physics of macromolecules. Finally, the retention time of a peptide is
         derived from Kd using the basis equation of gradient
         chromatography.
+        TheorChromo is based on the BioLCCC (Liquid Chromatography of
+        Biomolecules at Critical Conditions) model which describes the
+        adsorption of protein molecules on porous media.
+        Contrary to the other
+        models of peptide/protein chromatography, BioLCCC starts from very basic
+        assumptions regarding flexibility of a polypeptide chain, the shape of a
+        pore,
+        type of interactions neglected, etc. Given this assumptions, the
+        coefficient of
+        distribution (Kd) of a peptide between solid phase and mobile phase can
+        be
+        derived using the methods of statistical physics of macromolecules.
+        Finally, the
+        retention time of a peptide is calculated from Kd using the basis
+        equation of
+        gradient chromatography.
         </p>
 
         <p>
-        Due to the physical basis of the BioLCCC model, it contains very few
+        Owing to the physical basis of the BioLCCC model, it contains very few
         free parameters. The retention properties of an amino acid are
-        characterized by a single number, which is essentially the energy of an
-        interaction between amino acid and the surface of solid phase in pure
-        water+ion paring agent. Given this small number of
-        phenomenological parameters, the BioLCCC model can easily be adopted for
-        any type of chromatography not limited by phase or solvent types.
+        characterized by a single number, which is essentially the energy of
+        interaction between the amino acid and the surface of solid phase in 
+        pure water+ion paring agent. Given this small number of
+        phenomenological parameters, the BioLCCC model can easily be adapted for
+        an arbitrary type of chromatography not limited by phase or solvent 
+        types.
         Moreover, its extension to peptides with post-translational 
         modifications is straightforward as it was shown for the phosphorylated
         amino acids.
@@ -297,7 +315,7 @@ Alexander V. Gorshkov, Irina A. Tarasova, Victor V. Evreinov, Mikhail M. Savitsk
     <div class="answer">
         <p>
         Yes, the source code of the BioLCCC is open and can be used in any free
-        project. Please, check libBioLCCC and, in case you are using Python in
+        project. Please, check libBioLCCC and, if you use Python in
         your work, <a href="http://pypi.python.org/pypi/pyBioLCCC">pyBioLCCC</a>
         projects.
         </p>
