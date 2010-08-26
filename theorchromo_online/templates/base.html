@@ -23,50 +23,56 @@
 
   </head>
   <body>
-    <div id="headerTable">
-        <div id="headerRow">
-            <div id="header">
-              {% block header %}
-                <strong>TheorChromo online version 1.0 gamma</strong>
-              {% endblock %}
+    <div id="main">
+        <div id="headerTable">
+            <div id="headerRow">
+                <div id="header">
+                  {% block header %}
+                    <strong>TheorChromo online version 1.0 gamma</strong>
+                  {% endblock %}
+                </div>
+            </div>
+            <div id="headerRow">
+                <div id="subHeader">
+                    {% block subheader %}
+                    <div class="headerLink">
+                        <a href="/">Home</a>
+                    </div>
+                    <div class="headerLink">
+                        <a href="/help/">Help</a>
+                    </div>
+                    <div class="headerLink">
+                        <a href="http://groups.google.com/group/biolccc">
+                        BioLCCC mailing group</a>
+                    </div>
+                    <div class="headerLink">
+                        <a href="http://pypi.python.org/pypi/pyBioLCCC/">
+                        pyBioLCCC</a>
+                    </div>
+                    <div class="headerLink">
+                        <a href="http://proteomics.fizteh.ru/eng">
+                        Our laboratory</a>
+                    </div>
+                    {% endblock %}
+                </div>
+            </div>
+            <div id="headerRow">
+                <div id="subsubHeader">
+                </div>
             </div>
         </div>
-        <div id="headerRow">
-            <div id="subHeader">
-                {% block subheader %}
-                <div class="headerLink">
-                    <a href="/">Home</a>
-                </div>
-                <div class="headerLink">
-                    <a href="/help/">Help</a>
-                </div>
-                <div class="headerLink">
-                    <a href="http://groups.google.com/group/biolccc">
-                    BioLCCC mailing group</a>
-                </div>
-                <div class="headerLink">
-                    <a href="http://pypi.python.org/pypi/pyBioLCCC/">
-                    pyBioLCCC</a>
-                </div>
-                <div class="headerLink">
-                    <a href="http://proteomics.fizteh.ru/eng">
-                    Our laboratory</a>
-                </div>
-                {% endblock %}
-            </div>
-        </div>
-    </div>
     
-    {% block content %}
-    {% endblock %}
+        {% block content %}
+        {% endblock %}
 
-    <div id="footer">
-        Based on BioLCCC (Liquid Chromatography of Biomacromolecules at 
-        Critical Conditions) model.<br/>
-        Created by Laboratory of Physical and Chemical Methods for Structure
-        Analysis,<br/>
-        Institute of Energy Problems for Chemical Physics, 2004-2010.<br/>
-        Powered by Django.
+        <div id="footer">
+            Based on BioLCCC (Liquid Chromatography of Biomacromolecules at 
+            Critical Conditions) model.<br/>
+            Created by Laboratory of Physical and Chemical Methods for Structure
+            Analysis,<br/>
+            Institute of Energy Problems for Chemical Physics, 2004-2010.<br/>
+            Powered by Django.
+        </div>
     </div>
   </body>
 </html>
