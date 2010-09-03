@@ -9,6 +9,7 @@
         </Location>
 
         <Location "/lib">
+            DirectorySlash On
             SetHandler None
         </Location>
 
