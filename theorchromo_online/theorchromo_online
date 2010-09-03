@@ -3,7 +3,7 @@
         ServerAlias www.theorchromo.ru
         Alias /media/ /home/bezalel/theorchromo_online/releases/current/theorchromo_online/media/
         Alias /lib/ /home/bezalel/libBioLCCC/doc/current/
-        RedirectMath ^/lib$ /lib/
+        RedirectMatch ^/lib$ /lib/
 
         <Location "/media">
             SetHandler None
