@@ -2,13 +2,13 @@
         ServerName theorchromo.ru
         ServerAlias www.theorchromo.ru
         Alias /media/ /home/bezalel/theorchromo_online/releases/current/theorchromo_online/media/
-        Alias /libBioLCCC/ /home/bezalel/libBioLCCC/doc/current/
+        Alias /lib/ /home/bezalel/libBioLCCC/doc/current/
 
         <Location "/media">
             SetHandler None
         </Location>
 
-        <Location "/libBioLCCC">
+        <Location "/lib">
             SetHandler None
         </Location>
 
