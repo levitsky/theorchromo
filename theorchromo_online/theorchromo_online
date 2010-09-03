@@ -1,8 +1,8 @@
 <VirtualHost *:80>
         ServerName theorchromo.ru
         ServerAlias www.theorchromo.ru
-        Alias /media /home/bezalel/theorchromo_online/releases/current/theochromo_online/media/
-        Alias /doc /home/bezalel/libBioLCCC/doc/current/
+        Alias /media/ /home/bezalel/theorchromo_online/releases/current/theochromo_online/media/
+        Alias /doc/ /home/bezalel/libBioLCCC/doc/current/
 
         <Directory /home/bezalel/theorchromo_online/releases/current/theorchromo_online/media>
             Order deny,allow
