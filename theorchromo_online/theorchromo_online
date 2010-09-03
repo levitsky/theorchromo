@@ -9,7 +9,8 @@
         </Location>
 
         <Location "/lib">
-            DirectorySlash On
+            RewriteEngine on
+            RewriteEngine !^.*/$ /lib/
             SetHandler None
         </Location>
 
