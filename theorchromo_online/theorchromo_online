@@ -4,6 +4,14 @@
         Alias /media/ /home/bezalel/theorchromo_online/releases/current/theochromo_online/media/
         Alias /doc/ /home/bezalel/libBioLCCC/doc/current/
 
+        <Location "/media">
+            SetHandler None
+        </Location>
+
+        <Location "/doc">
+            SetHandler None
+        </Location>
+
         <Directory /home/bezalel/theorchromo_online/releases/current/theorchromo_online/media>
             Order deny,allow
             Allow from all
@@ -22,6 +30,7 @@
             Order deny,allow
             Allow from all
         </Directory>
+
         ErrorLog /var/log/apache2/error.log
         LogLevel warn
         CustomLog /var/log/apache2/access.log combined
