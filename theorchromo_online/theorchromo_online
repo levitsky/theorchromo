@@ -1,9 +1,23 @@
 <VirtualHost *:80>
         ServerName theorchromo.ru
         ServerAlias www.theorchromo.ru
+        Alias /media /home/bezalel/theorchromo_online/releases/current/theochromo_online/media/
+        Alias /doc /home/bezalel/libBioLCCC/doc/current/
+
+        <Directory /home/bezalel/theorchromo_online/releases/current/theorchromo_online/media>
+            Order deny,allow
+            Allow from all
+        </Directory>
+
+        <Directory /home/bezalel/libBioLCCC/doc/current>
+            Order deny,allow
+            Allow from all
+        </Directory>
+
         WSGIDaemonProcess theorchromo_online-production user=bezalel group=bezalel threads=10 python-path=/home/bezalel/theorchromo_online/lib/python2.6/site-packages
         WSGIProcessGroup theorchromo_online-production
         WSGIScriptAlias / /home/bezalel/theorchromo_online/releases/current/theorchromo_online/theorchromo_online.wsgi
+
         <Directory /home/bezalel/theorchromo_online/releases/current/theorchromo_online>
             Order deny,allow
             Allow from all
