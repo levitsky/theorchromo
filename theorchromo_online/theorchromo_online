@@ -3,14 +3,13 @@
         ServerAlias www.theorchromo.ru
         Alias /media/ /home/bezalel/theorchromo_online/releases/current/theorchromo_online/media/
         Alias /lib/ /home/bezalel/libBioLCCC/doc/current/
+        RedirectMath ^/lib$ /lib/
 
         <Location "/media">
             SetHandler None
         </Location>
 
         <Location "/lib">
-            RewriteEngine on
-            RewriteEngine !^.*/$ /lib/
             SetHandler None
         </Location>
 
