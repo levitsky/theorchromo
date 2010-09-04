@@ -13,11 +13,35 @@ def target_server():
     "Use the production server"
     env.hosts = ['76.10.212.149']
     env.project_path = '/home/bezalel/theorchromo_online'
+    env.doc_path = '/home/bezalel/libBioLCCC'
     env.user = 'bezalel'
     env.virtualhost_path = "/"
     env.warn_only = True
+    env.libBioLCCC_version = open(
+        '../../libBioLCCC/build/VERSION').readline().strip(' \n\t')
 
 # Tasks
+def setup_libBioLCCC_doc():
+    """
+    Uploads libBioLCCC docs.
+    """
+    require('hosts', provided_by=[target_server])
+    require('doc_path', provided_by=[target_server])
+    require('libBioLCCC_version', provided_by=[target_server])
+    local('tar -cvzf ./doc.%(libBioLCCC_version)s.tar.gz ' % env +
+          '../../libBioLCCC/build/doc/*')
+    run('mkdir -p %(doc_path)s/doc/%(libBioLCCC_version)s' % env)
+    run('rm -rf %(doc_path)s/doc/%(libBioLCCC_version)s/*' % env)
+    run('rm -rf %(doc_path)s/doc/current' % env)
+    run('ln -s %(doc_path)s/doc/%(libBioLCCC_version)s ' % env +
+        '%(doc_path)s/doc/current' % env)
+
+    put('doc.%(libBioLCCC_version)s.tar.gz' % env, 
+        '%(doc_path)s/doc/%(libBioLCCC_version)s' % env)
+    local('rm doc.%(libBioLCCC_version)s.tar.gz')
+    run('cd %(doc_path)s/doc/%(libBioLCCC_version)s' % env + 
+        ' && tar zxf doc.%(libBioLCCC_version)s.tar.gz --strip 3' % env)
+
 def test():
     "Run the test suite and bail out if it fails"
     local("cd %(project_name)s; python manage.py test" % env)
