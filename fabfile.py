@@ -125,7 +125,7 @@ def install_requirements():
     "Install the required packages from the requirements file using pip"
     require('release', provided_by=[deploy, setup])
     run(('cd %(project_path)s; pip install -E . '+
-        '-r ./releases/%(release)s/requirements.txt') % env)
+        '-r ./releases/%(release)s/requirements.txt --upgrade') % env)
 
 def install_site():
     "Add the virtualhost file to apache"
