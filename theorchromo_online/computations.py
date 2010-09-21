@@ -12,7 +12,7 @@ def process_peptides(length, diameter, pore_size, bmin, bmax, gradient_time,
     if chromatography_type == 'RP/ACN+FA':
         chembasis = pyBioLCCC.rpAcnFaRod
     elif chromatography_type == 'RP/ACN+TFA':
-        chembasis = pyBioLCCC.rpAcnTfaCoil
+        chembasis = pyBioLCCC.rpAcnTfaChain
     
     output = []
     for sequence in peptides.replace('\r', '').split('\n'):
