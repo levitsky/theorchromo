@@ -23,7 +23,7 @@ def process_peptides(length, diameter, pore_size, bmin, bmax, gradient_time,
         try:
             peptide_properties['RT'] = (round(
                 pyBioLCCC.calculateRT(
-                    str(sequence.strip()), chembasis, chromatograph), 2))
+                    str(sequence.strip()), chembasis, chromatograph, 21), 2))
             peptide_properties['monoisotopicMass'] = (
                 pyBioLCCC.calculateMonoisotopicMass(
                     str(sequence.strip()), chembasis))
