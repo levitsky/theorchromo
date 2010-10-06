@@ -1,2 +1,2 @@
 Django
-pyBioLCCC>=1.0.0
+pyBioLCCC>=1.2.0
