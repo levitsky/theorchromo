@@ -17,8 +17,8 @@ def target_server():
     env.user = 'bezalel'
     env.virtualhost_path = "/"
     env.warn_only = True
-    env.libBioLCCC_version = open(
-        '../../libBioLCCC/build/VERSION').readline().strip(' \n\t')
+#   env.libBioLCCC_version = open(
+#       '../../libBioLCCC/build/VERSION').readline().strip(' \n\t')
 
 # Tasks
 def setup_libBioLCCC_doc():
