@@ -1,5 +1,5 @@
 from django import forms
-import pyBioLCCC
+import pyteomics.biolccc as pyBioLCCC
 
 class ChromoConditionsForm(forms.Form):
     error_css_class = 'error'

@@ -3,7 +3,7 @@ import os
 # Django settings for theorchromo_online project.
 
 import socket
-if socket.gethostname() == 'bezalel-6720s':
+if socket.gethostname() == 'calc-server':
     DEBUG = True
     database_path = './testing.db'
 else:
