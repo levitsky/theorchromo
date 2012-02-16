@@ -1,4 +1,4 @@
-import pyBioLCCC
+import pyteomics.biolccc as pyBioLCCC
 
 def process_peptides(length, diameter, pore_size, bmin, bmax, gradient_time,
     delay_time, flow_rate, acna, acnb, chromatography_type, peptides,
