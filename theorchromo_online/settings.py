@@ -5,16 +5,18 @@ import os
 import socket
 if socket.gethostname() == 'calc-server':
     DEBUG = True
-    database_path = './testing.db'
+    database_path = 'testing.db'
 else:
     DEBUG = False
-    database_path = os.path.join(os.path.dirname(__file__), 
-        '../../../data/theorchromo_online.db').replace('\\','/')
+    database_path = 'theorchromo.db'
+database_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+        database_path)
 
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     ('Anton Goloborodko', 'goloborodko.anton@gmail.com'),
+    ('Lev Levitsky', 'lev.levitsky@phystech.edu'),
 )
 
 MANAGERS = ADMINS
