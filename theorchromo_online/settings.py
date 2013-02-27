@@ -3,7 +3,7 @@ import os
 # Django settings for theorchromo_online project.
 
 import socket
-if socket.gethostname() == 'calc-server':
+if socket.gethostname() in {'home', 'calc-server', 'calc-old'}:
     DEBUG = True
     database_path = 'testing.db'
 else:
@@ -23,7 +23,7 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql',
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql',
                              # 'sqlite3' or 'oracle', 'django.db.backends.'
         'NAME': database_path,       # Path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
