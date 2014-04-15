@@ -3,11 +3,11 @@ import os
 # Django settings for theorchromo_online project.
 
 import socket
-if socket.gethostname() in {'home', 'calc-server', 'calc-old'}:
-    DEBUG = True
+
+DEBUG = False 
+if DEBUG:
     database_path = 'testing.db'
 else:
-    DEBUG = False
     database_path = 'theorchromo.db'
 database_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
         database_path)
@@ -18,6 +18,10 @@ ADMINS = (
     ('Anton Goloborodko', 'goloborodko.anton@gmail.com'),
     ('Lev Levitsky', 'lev.levitsky@phystech.edu'),
 )
+ALLOWED_HOSTS = [
+        '.theorchromo.ru',
+        '.theorchromo.ru.',
+]
 
 MANAGERS = ADMINS
 

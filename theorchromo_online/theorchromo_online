@@ -1,39 +1,16 @@
 <VirtualHost *:80>
         ServerName theorchromo.ru
         ServerAlias www.theorchromo.ru
-        Alias /media/ /home/bezalel/theorchromo_online/releases/current/theorchromo_online/media/
-        Alias /lib/ /home/bezalel/libBioLCCC/doc/current/
-        RedirectMatch ^/lib$ /lib/
-
-        <Location "/media">
-            SetHandler None
-        </Location>
-
-        <Location "/lib">
-            SetHandler None
-        </Location>
-
-        <Directory /home/bezalel/theorchromo_online/releases/current/theorchromo_online/media>
+        Alias /media/ /path/to/theorchromo_online/media/
+        <Directory /path/to/theorchromo_online>
+        <Files theorchromo_online.wsgi>
             Order deny,allow
-            Allow from all
+            Require all granted
+        </Files>
         </Directory>
 
-        <Directory /home/bezalel/libBioLCCC/doc/current>
-            DirectoryIndex index.html
-            Order deny,allow
-            Allow from all
-        </Directory>
+        WSGIDaemonProcess theorchromo.ru user=USER group=GROUP threads=10 python-path=/path/to/theorchromo_online:/path/to/biolccc
+        WSGIProcessGroup theorchromo.ru
+        WSGIScriptAlias / /path/to/theorchromo_online/theorchromo_online.wsgi
 
-        WSGIDaemonProcess theorchromo_online-production user=bezalel group=bezalel threads=10 python-path=/home/bezalel/theorchromo_online/lib/python2.6/site-packages
-        WSGIProcessGroup theorchromo_online-production
-        WSGIScriptAlias / /home/bezalel/theorchromo_online/releases/current/theorchromo_online/theorchromo_online.wsgi
-
-        <Directory /home/bezalel/theorchromo_online/releases/current/theorchromo_online>
-            Order deny,allow
-            Allow from all
-        </Directory>
-
-        ErrorLog /var/log/apache2/error.log
-        LogLevel warn
-        CustomLog /var/log/apache2/access.log combined
 </VirtualHost>
