@@ -1,4 +1,5 @@
-from django.conf.urls import patterns, url, include
+from django.conf.urls import url, include
+from django.views.static import serve
 from theorchromo_online.views import *
 import settings
 
@@ -6,7 +7,7 @@ import settings
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = [
     # Example:
     # (r'^theorchromo_online/', include('theorchromo_online.foo.urls')),
 
@@ -15,14 +16,14 @@ urlpatterns = patterns('',
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    (r'^admin/', include(admin.site.urls)),
-    (r'^$', index),
-    (r'^help/$', help_page),
-    (r'^results/$', results),
-)
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', index),
+    url(r'^help/$', help_page),
+    url(r'^results/$', results),
+]
 
 if settings.DEBUG:
-    urlpatterns += patterns('',
-    (r'^media/(?P<path>.*)$', 'django.views.static.serve',
+    urlpatterns += [
+    url(r'^media/(?P<path>.*)$', serve,
         {'document_root': settings.MEDIA_ROOT}),
-    )
+   ]

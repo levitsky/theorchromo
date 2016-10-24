@@ -1,16 +1,14 @@
 import datetime
 
 import django
-from django.shortcuts import render_to_response
+from django.shortcuts import render, render_to_response
 from django.http import HttpResponse, HttpResponseRedirect, Http404
-from django.core.context_processors import csrf
 
 from theorchromo_online.forms import *
 from theorchromo_online.computations import process_peptides
 
 def index(request):
     output = {}
-    output.update(csrf(request))
     if request.method == 'POST':
         chromoConditionsForm = ChromoConditionsForm(request.POST)
         peptideSequencesForm = PeptideSequencesForm(request.POST)
@@ -32,7 +30,7 @@ def index(request):
             peptideSequencesForm = PeptideSequencesForm()
     output['chromoConditionsForm'] = chromoConditionsForm
     output['peptideSequencesForm'] = peptideSequencesForm
-    return render_to_response('index.html', output)
+    return render(request, 'index.html', output)
 
 def help_page(request):
     return render_to_response('help.html')

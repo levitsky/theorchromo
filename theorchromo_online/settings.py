@@ -4,15 +4,13 @@ import os
 
 import socket
 
-DEBUG = False 
+DEBUG = True 
 if DEBUG:
     database_path = 'testing.db'
 else:
     database_path = 'theorchromo.db'
 database_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
         database_path)
-
-TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     ('Anton Goloborodko', 'goloborodko.anton@gmail.com'),
@@ -78,11 +76,6 @@ ADMIN_MEDIA_PREFIX = '/admin_media/'
 SECRET_KEY = 'sc15%^nt2sl01r_9)zuz(0v$9s==3bdrbng5=b@zdxbl6d-s_g'
 
 # List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
-)
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -94,12 +87,17 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'theorchromo_online.urls'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': ['django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages'],
+        },
+    },
+]
 
 INSTALLED_APPS = (
     'django.contrib.auth',
