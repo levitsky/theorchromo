@@ -19,21 +19,17 @@
     </title>
 
     <link rel="stylesheet" type="text/css" href="/media/style_div.css">
-    <script type="text/javascript">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6TLFPZBVDR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-10219290-1']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-
+      gtag('config', 'G-6TLFPZBVDR');
     </script>
-
   </head>
+
   <body>
     <div id="main">
         <div id="headerTable">
@@ -58,7 +54,7 @@
                         BioLCCC mailing group</a>
                     </div>
                     <div class="headerLink">
-                        <a href="http://packages.python.org/pyteomics.biolccc/API/namespaceBioLCCC.html">
+                        <a href="http://theorchromo.ru/docs/API/namespaceBioLCCC.html">
                         libBioLCCC</a>
                     </div>
                     <div class="headerLink">
@@ -67,14 +63,14 @@
                     </div>
                     <div class="headerLink">
                         <a href="/docs">
-                        pyteomics.biolccc</a>
+                        pyteomics.biolccc docs</a>
                     </div>
                     <div class="headerLink">
-                        <a href="http://hg.theorchromo.ru/">
+                        <a href="https://github.com/levitsky/biolccc">
                         Source code repository</a>
                     </div>
                     <div class="headerLink">
-                        <a href="http://proteomics.fizteh.ru/eng">
+                        <a href="https://gorshkovlab.github.io/about/">
                         Our laboratory</a>
                     </div>
                     {% endblock %}
@@ -85,16 +81,16 @@
                 </div>
             </div>
         </div>
-    
+
         {% block content %}
         {% endblock %}
 
         <div id="footer">
-            Based on BioLCCC (Liquid Chromatography of Biomacromolecules at 
+            Based on BioLCCC (Liquid Chromatography of Biomacromolecules at
             Critical Conditions) model.<br/>
             Created by Laboratory of Physical and Chemical Methods for Structure
             Analysis,<br/>
-            Institute for Energy Problems of Chemical Physics, 2004-2012.<br/>
+            Institute for Energy Problems of Chemical Physics, 2004-2022.<br/>
             Powered by Django.
         </div>
     </div>
