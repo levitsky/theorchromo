@@ -1,5 +1,4 @@
-syntax: glob
-
 *.swp
 *.pyc
 *.db
+__pycache__
