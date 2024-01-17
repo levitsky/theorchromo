@@ -2,9 +2,7 @@ import os
 
 # Django settings for theorchromo_online project.
 
-import socket
-
-DEBUG = True 
+DEBUG = True
 if DEBUG:
     database_path = 'testing.db'
 else:
@@ -17,6 +15,7 @@ ADMINS = (
     ('Lev Levitsky', 'lev.levitsky@phystech.edu'),
 )
 ALLOWED_HOSTS = [
+        'localhost',
         '.theorchromo.ru',
         '.theorchromo.ru.',
 ]
@@ -77,7 +76,7 @@ SECRET_KEY = 'sc15%^nt2sl01r_9)zuz(0v$9s==3bdrbng5=b@zdxbl6d-s_g'
 
 # List of callables that know how to import templates from various sources.
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -106,5 +105,5 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     # Uncomment the next line to enable the admin:
-    'django.contrib.admin',
+    # 'django.contrib.admin',
 )

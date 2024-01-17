@@ -1,11 +1,9 @@
-import datetime
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
 
-import django
-from django.shortcuts import render, render_to_response
-from django.http import HttpResponse, HttpResponseRedirect, Http404
-
-from theorchromo_online.forms import *
+from theorchromo_online.forms import ChromoConditionsForm, PeptideSequencesForm
 from theorchromo_online.computations import process_peptides
+
 
 def index(request):
     output = {}
@@ -32,8 +30,10 @@ def index(request):
     output['peptideSequencesForm'] = peptideSequencesForm
     return render(request, 'index.html', output)
 
+
 def help_page(request):
-    return render_to_response('help.html')
+    return render(request, 'help.html')
+
 
 def results(request):
     if request.session.has_key('request_data'):
@@ -44,5 +44,5 @@ def results(request):
              'value' : request.session['request_data'][field.name]}
             for field in chromoConditionsForm]
         processed_peptides = process_peptides(
-            **request.session['request_data'])  
-    return render_to_response('results.html', locals())
+            **request.session['request_data'])
+    return render(request, 'results.html', locals())
