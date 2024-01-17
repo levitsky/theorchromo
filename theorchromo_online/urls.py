@@ -1,7 +1,7 @@
 from django.urls import path, re_path
 from django.views.static import serve
 from .views import *
-import settings
+from . import settings
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
