@@ -11,12 +11,12 @@ class ChromoConditionsForm(forms.Form):
         error_messages = {
             'required' : u'Column length is required.',
             'invalid'  : u'Column length must be a number.',
-            'min_value': 
+            'min_value':
                 u'Column length must be greater than %(limit_value)d mm.',
             'max_value':
                 u'Column length must be less than %(limit_value)d mm.'})
     diameter = forms.FloatField(
-        label='Column internal diameter, mm', 
+        label='Column internal diameter, mm',
         initial=pyBioLCCC.standardChromoConditions.columnDiameter(),
         min_value=0.0,
         max_value=1.0e2,
@@ -25,10 +25,10 @@ class ChromoConditionsForm(forms.Form):
             'invalid'  : u'Column diameter must be a number.',
             'min_value':
                 u'Column diameter must be greater than %(limit_value)d mm.',
-            'max_value': 
+            'max_value':
                 u'Column diameter must be less than %(limit_value)d mm.'})
     pore_size = forms.FloatField(
-        label='Packing material pore size, A', 
+        label='Packing material pore size, A',
         initial=pyBioLCCC.standardChromoConditions.columnPoreSize(),
         min_value=60.0,
         max_value=1000.0,
@@ -62,7 +62,7 @@ class ChromoConditionsForm(forms.Form):
     gradient_time = forms.FloatField(
         initial=pyBioLCCC.standardChromoConditions.gradient()[1].time(),
         label='Gradient time, min',
-        min_value=0.0, 
+        min_value=0.0,
         max_value=1000.0,
         error_messages = {
             'required' : u'Gradient time is required.',
@@ -111,6 +111,15 @@ class ChromoConditionsForm(forms.Form):
             'invalid'  : u'ACN concentration in component B must be a number.',
             'min_value': u'ACN concentration in component B must be greater than %(limit_value)d%%.',
             'max_value': u'ACN concentration in component B must be less than %(limit_value)d%%.'})
+    temperature = forms.FloatField(
+        label='Temperature, K',
+        initial=pyBioLCCC.standardChromoConditions.temperature(),
+        min_value=0.0,
+        error_messages = {
+            'required' : u'temperature is required.',
+            'invalid'  : u'temperature must be a number.',
+            'min_value': u'temperature must be greater than %(limit_value)d%%.'}
+        )
     chromatography_type = forms.ChoiceField(
         label='Solid/mobile phase combination',
         choices=[('RP/ACN+TFA', 'RP/ACN+TFA'),
@@ -121,10 +130,11 @@ class ChromoConditionsForm(forms.Form):
             'invalid_choice' :
                 u'Choose an allowable combination of phases.'})
 
+
 class PeptideSequencesForm(forms.Form):
     peptides = forms.CharField(
         label='Peptide sequences',
-        widget=forms.Textarea(attrs={'rows':10, 'cols':60}))
+        widget=forms.Textarea(attrs={'rows':11, 'cols':60}))
     is_alkylated = forms.BooleanField(
         label='Cysteines are carboxyamidomethylated',
         required=False)

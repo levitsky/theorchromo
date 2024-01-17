@@ -2,18 +2,19 @@ import pyteomics.biolccc as pyBioLCCC
 
 def process_peptides(length, diameter, pore_size, bmin, bmax, gradient_time,
     delay_time, flow_rate, acna, acnb, chromatography_type, peptides,
-    is_alkylated):
+    is_alkylated, temperature):
 
     chromatograph = pyBioLCCC.ChromoConditions(
         length, diameter, pore_size,
         pyBioLCCC.Gradient(bmin, bmax, gradient_time),
-        acna, acnb, delay_time, flow_rate, flow_rate / 20.0)
+        acna, acnb, delay_time, flow_rate, flow_rate / 20.0,
+        1.0, 0.5, 0.9, temperature)
 
     if chromatography_type == 'RP/ACN+FA':
         chembasis = pyBioLCCC.rpAcnFaRod
     elif chromatography_type == 'RP/ACN+TFA':
         chembasis = pyBioLCCC.rpAcnTfaChain
-    
+
     output = []
     for sequence in peptides.replace('\r', '').split('\n'):
         if is_alkylated:
