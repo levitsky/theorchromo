@@ -2,19 +2,22 @@ import os
 
 # Django settings for theorchromo_online project.
 
+PACKAGE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(PACKAGE_DIR)
+
 DEBUG = True
 if DEBUG:
     database_path = 'testing.db'
 else:
     database_path = 'theorchromo.db'
-database_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-        database_path)
+database_path = os.path.join(BASE_DIR, database_path)
 
 ADMINS = (
     ('Anton Goloborodko', 'goloborodko.anton@gmail.com'),
     ('Lev Levitsky', 'lev.levitsky@phystech.edu'),
 )
 ALLOWED_HOSTS = [
+        '127.0.0.1',
         'localhost',
         '.theorchromo.ru',
         '.theorchromo.ru.',
@@ -59,7 +62,7 @@ USE_L10N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'media').replace('\\','/')
+MEDIA_ROOT = os.path.join(PACKAGE_DIR, 'media').replace('\\','/')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -89,7 +92,7 @@ ROOT_URLCONF = 'theorchromo_online.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/')],
+        'DIRS': [os.path.join(PACKAGE_DIR, 'templates').replace('\\','/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': ['django.contrib.auth.context_processors.auth',

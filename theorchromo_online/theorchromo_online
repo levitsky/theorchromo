@@ -1,16 +1,16 @@
 <VirtualHost *:80>
         ServerName theorchromo.ru
         ServerAlias www.theorchromo.ru
-        Alias /media/ /path/to/theorchromo_online/media/
-        <Directory /path/to/theorchromo_online>
-        <Files theorchromo_online.wsgi>
+        Alias /media/ /path/to/theorchromo/theorchromo_online/media/
+        <Directory /path/to/theorchromo>
+        <Files wsgi.py>
             Order deny,allow
             Require all granted
         </Files>
         </Directory>
 
-        WSGIDaemonProcess theorchromo.ru user=USER group=GROUP threads=10 python-path=/path/to/theorchromo_online:/path/to/biolccc
+        WSGIDaemonProcess theorchromo.ru user=USER group=GROUP threads=10 python-path=/path/to/theorchromo:/path/to/biolccc
         WSGIProcessGroup theorchromo.ru
-        WSGIScriptAlias / /path/to/theorchromo_online/theorchromo_online.wsgi
+        WSGIScriptAlias / /path/to/theorchromo/theorchromo_online/wsgi.py
 
 </VirtualHost>
